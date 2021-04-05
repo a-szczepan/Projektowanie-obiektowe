@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <title>Authors</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+   </head>
+   <body class="container">
+      <div style="background-color: #96CDFF;">
+         <h1 class="text-center"> List of Authors </h1>
+      </div>
+      <h3>Add new author</h3>
+      <form method="POST" action="/author/create">
+         <div class="input-group form-group">
+            <input type="text" placeholder="First name" name="first_name" class="form-control">
+            <input type="text" placeholder="Last name" name="last_name" class="form-control">
+         </div>
+         <div>
+            <span class="input-group-btn">
+            <input class="btn btn-primary"  type="submit" value="Add author" style="margin-bottom: 50px;"/>
+            </span>
+         </div>
+      </form>
+      <div class="modal fade" id="myModal" role="dialog">
+         <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Edit authors</h4>
+               </div>
+               <div class="modal-body">
+                  #for(author in authorList):
+                  <form style="margin-bottom: 40px;" method="POST" action="/author/update/#(author.id)">
+                     <div class="input-group form-group">
+                        <input type="text" name="id" class="form-control" value="#(author.id)" disabled>
+                        <input type="text" name="first_name" class="form-control" value="#(author.first_name)">
+                        <input type="text" name="last_name" class="form-control" value="#(author.last_name)">
+                     </div>
+                     <div class="mb-2">
+                        <span class="input-group-btn">
+                        <input class="btn btn-success" type="submit" value="update" />
+                        </span>
+                     </div>
+                  </form>
+                  #endfor
+               </div>
+            </div>
+         </div>
+      </div>
+      <div style="column-count: 2; margin-bottom: 10px;">
+         <h3>Authors</h3>
+         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" >Edit list</button>
+      </div>
+      #for(author in authorList):
+      <form style="margin-bottom: 40px; " method="POST" action="/author/delete/#(author.id)">
+         <div class="form-group input-group">
+            <input type="text" name="id" class="form-control" value="ID: #(author.id)" disabled>
+            <input type="text" name="first_name" class="form-control" value="First name: #(author.first_name)" disabled>
+            <input type="text" name="last_name" class="form-control" value="Last name: #(author.last_name)" disabled>
+         </div>
+         <div>
+            <span class="input-group-btn">
+            <input class="btn btn-danger" type="submit" value="Delete author" />
+            </span>
+         </div>
+      </form>
+      #endfor
+   </body>
+</html>
