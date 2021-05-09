@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.shopping-bag {
+  position: absolute;
+  cursor: pointer;
+  top: 56px;
+  right: 20px;
+}
+
+.close-cart {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.shopping-cart {
+  display: flex;
+  flex-direction: column;
+  width: 0;
+  padding: 0 20px 20px 20px;
+  position: absolute;
+  right: -400px;
+  top: 120px;
+  height: auto;
+  transition: 300ms linear all;
+  overflow: auto;
+  width: 300px;
+  border-radius: 4px;
+  background: white;
+  box-shadow: 0 0 2px 2px rgba(0,0,0,0.3);
+  color: #03191E;
+}
+
+.shopping-cart-open {
+  opacity: 1;
+  right: 20px;
+}
+
+
+
+
