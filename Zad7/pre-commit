@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for name in $(git diff --cached --name-only ); 
+do
+       ktlint $name   
+       ktlint -F $name   
+       git add $name
