@@ -3,7 +3,6 @@
 
 
 package pl.edu.uj.demo
-   
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
