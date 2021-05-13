@@ -4,8 +4,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  
-  workflow_dispatch:
+
 
 jobs:
   build:
@@ -16,7 +15,7 @@ jobs:
       - name: Go 1.16 setup
         uses: actions/setup-go@v2
         with:
-          go-version: '1.16.0'
+          go-version: 1.16.0
         
       - name: Run 
         run: cd Zad3 && go build server.go
