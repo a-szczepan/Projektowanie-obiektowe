@@ -13,8 +13,8 @@
       <h3>Add new book</h3>
       <form method="POST" action="/book/create">
          <div class="input-group form-group">
-            <input type="text" placeholder="Author ID" name="author_id" class="form-control">
-            <input type="text" placeholder="Publisher ID" name="publisher_id" class="form-control">
+            <input type="text" placeholder="Author ID" name="authorId" class="form-control">
+            <input type="text" placeholder="Publisher ID" name="publisherId" class="form-control">
             <input type="text" placeholder="Title" name="title" class="form-control">
          </div>
          <div>
@@ -36,8 +36,8 @@
                   <form style="margin-bottom: 40px;" method="POST" action="/book/update/#(book.id)">
                      <div class="input-group form-group">
                         <input type="text" name="id" class="form-control" value="#(book.id)" disabled>
-                        <input type="text" name="author_id" class="form-control" value="#(book.author_id)" >
-                        <input type="text" name="publisher_id" class="form-control" value="#(book.publisher_id)" >
+                        <input type="text" name="authorId" class="form-control" value="#(book.authorId)" >
+                        <input type="text" name="publisherId" class="form-control" value="#(book.publisherId)" >
                         <input type="text" name="title" class="form-control" value="#(book.title)">
                      </div>
                      <div class="mb-2">
@@ -59,8 +59,8 @@
       <form style="margin-bottom: 40px; " method="POST" action="/book/delete/#(book.id)">
          <div class="form-group input-group">
             <input type="text" name="id" class="form-control" value="ID: #(book.id)" disabled>
-            <input type="text" name="author_id" class="form-control" value="Author ID: #(book.author_id)" disabled>
-            <input type="text" name="publisher_id" class="form-control" value="Publisher ID: #(book.publisher_id)" disabled>
+            <input type="text" name="authorId" class="form-control" value="Author ID: #(book.authorId)" disabled>
+            <input type="text" name="publisherId" class="form-control" value="Publisher ID: #(book.publisherId)" disabled>
             <input type="text" name="title" class="form-control" value="Title: #(book.title)" disabled>
          </div>
          <div>

@@ -13,8 +13,8 @@
       <h3>Add new author</h3>
       <form method="POST" action="/author/create">
          <div class="input-group form-group">
-            <input type="text" placeholder="First name" name="first_name" class="form-control">
-            <input type="text" placeholder="Last name" name="last_name" class="form-control">
+            <input type="text" placeholder="First name" name="firstName" class="form-control">
+            <input type="text" placeholder="Last name" name="lastName" class="form-control">
          </div>
          <div>
             <span class="input-group-btn">
@@ -35,8 +35,8 @@
                   <form style="margin-bottom: 40px;" method="POST" action="/author/update/#(author.id)">
                      <div class="input-group form-group">
                         <input type="text" name="id" class="form-control" value="#(author.id)" disabled>
-                        <input type="text" name="first_name" class="form-control" value="#(author.first_name)">
-                        <input type="text" name="last_name" class="form-control" value="#(author.last_name)">
+                        <input type="text" name="firstName" class="form-control" value="#(author.firstName)">
+                        <input type="text" name="lastName" class="form-control" value="#(author.lastName)">
                      </div>
                      <div class="mb-2">
                         <span class="input-group-btn">
@@ -57,8 +57,8 @@
       <form style="margin-bottom: 40px; " method="POST" action="/author/delete/#(author.id)">
          <div class="form-group input-group">
             <input type="text" name="id" class="form-control" value="ID: #(author.id)" disabled>
-            <input type="text" name="first_name" class="form-control" value="First name: #(author.first_name)" disabled>
-            <input type="text" name="last_name" class="form-control" value="Last name: #(author.last_name)" disabled>
+            <input type="text" name="firstName" class="form-control" value="First name: #(author.firstName)" disabled>
+            <input type="text" name="lastName" class="form-control" value="Last name: #(author.lastName)" disabled>
          </div>
          <div>
             <span class="input-group-btn">
