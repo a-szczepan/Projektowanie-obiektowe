@@ -2,7 +2,11 @@ import Fluent
 import Vapor
 
 struct PublisherController: RouteCollection {
-    func boot(routes: RoutesBuilder) throws {}
+    func boot(routes: RoutesBuilder) throws {
+        //routes builder
+    }
+
+    let publisherRout = "/publishers"
 
     func list(_ req: Request) throws -> EventLoopFuture<View> {
         let allPublishers = Publisher.query(on: req.db).all()
@@ -15,7 +19,7 @@ struct PublisherController: RouteCollection {
     func create(req: Request) throws -> EventLoopFuture<Response> {
         let publisher = try req.content.decode(Publisher.self)
         return publisher.save(on: req.db).map { _ in
-            return req.redirect(to: "/publishers")
+            return req.redirect(to: self.publisherRout)
         }
     }
 
@@ -26,7 +30,7 @@ struct PublisherController: RouteCollection {
             .flatMap { publisher in
                 publisher.name = input.name
                 return publisher.save(on: req.db).map { _ in
-                    return req.redirect(to: "/publishers")
+                    return req.redirect(to: self.publisherRout)
                 }
             }
     }
@@ -36,7 +40,7 @@ struct PublisherController: RouteCollection {
             .unwrap(or: Abort(.notFound))
             .flatMap { $0.delete(on: req.db) }
             .map { _ in
-                return req.redirect(to: "/publishers")
+                return req.redirect(to: self.publisherRout)
             }
     }
 }
