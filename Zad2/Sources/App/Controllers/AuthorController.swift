@@ -6,7 +6,7 @@ struct AuthorController: RouteCollection {
         //routes builders
     }
 
-    let AuthorRout = "/authors"
+    let authorRout = "/authors"
 
     func list(_ req: Request) throws -> EventLoopFuture<View> {
         let allAuthors = Author.query(on: req.db).all()
@@ -19,7 +19,7 @@ struct AuthorController: RouteCollection {
     func create(req: Request) throws -> EventLoopFuture<Response> {
         let author = try req.content.decode(Author.self)
         return author.save(on: req.db).map { _ in
-            return req.redirect(to: self.AuthorRout)
+            return req.redirect(to: self.authorRout)
         }
     }
 
@@ -28,10 +28,10 @@ struct AuthorController: RouteCollection {
         return Author.find(req.parameters.get("id"), on: req.db)
             .unwrap(or: Abort(.notFound))
             .flatMap { author in
-                author.first_name = input.first_name
-                author.last_name = input.last_name
+                author.firstName = input.firstName
+                author.lastName = input.lastName
                 return author.save(on: req.db).map { _ in
-                    return req.redirect(to: self.AuthorRout)
+                    return req.redirect(to: self.authorRout)
                 }
             }
     }
@@ -41,7 +41,7 @@ struct AuthorController: RouteCollection {
             .unwrap(or: Abort(.notFound))
             .flatMap { $0.delete(on: req.db) }
             .map { _ in
-                return req.redirect(to: self.AuthorRout)
+                return req.redirect(to: self.authorRout)
             }
     }
 }

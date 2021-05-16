@@ -28,8 +28,8 @@ struct BookController: RouteCollection {
         return Book.find(req.parameters.get("id"), on: req.db)
             .unwrap(or: Abort(.notFound))
             .flatMap { book in
-                book.author_id = input.author_id
-                book.publisher_id = input.publisher_id
+                book.authorId = input.authorId
+                book.publisherId = input.publisherId
                 book.title = input.title
                 return book.save(on: req.db).map { _ in
                     return req.redirect(to: self.bookRout)

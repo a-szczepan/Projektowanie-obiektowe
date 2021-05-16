@@ -7,19 +7,19 @@ final class Author: Model, Content {
     @ID(key: .id)
     var id: UUID?
 
-    @Field(key: "first_name")
-    var first_name: String
+    @Field(key: "firstName")
+    var firstName: String
     
-    @Field(key: "last_name")
-    var last_name: String
+    @Field(key: "lastName")
+    var lastName: String
 
     init() {
         //init
      }
 
-    init(id: UUID? = nil, first_name: String, last_name: String) {
+    init(id: UUID? = nil, firstName: String, lastName: String) {
         self.id = id
-        self.first_name = first_name
-        self.last_name = last_name
+        self.firstName = firstName
+        self.lastName = lastName
     }
 }
