@@ -21,7 +21,6 @@
 .shopping-cart {
   display: flex;
   flex-direction: column;
-  width: 0;
   padding: 0 20px 20px 20px;
   position: absolute;
   right: -400px;
