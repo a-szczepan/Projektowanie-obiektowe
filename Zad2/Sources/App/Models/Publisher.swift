@@ -10,7 +10,9 @@ final class Publisher: Model, Content {
     @Field(key: "name")
     var name: String
 
-    init() { }
+    init() {
+        //init
+     }
 
     init(id: UUID? = nil, name: String) {
         self.id = id

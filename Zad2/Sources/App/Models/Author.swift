@@ -13,7 +13,9 @@ final class Author: Model, Content {
     @Field(key: "last_name")
     var last_name: String
 
-    init() { }
+    init() {
+        //init
+     }
 
     init(id: UUID? = nil, first_name: String, last_name: String) {
         self.id = id
